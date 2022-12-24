@@ -1,7 +1,7 @@
 from src.base_index import BaseIndex
 
 class InvertedIndex(BaseIndex):
-  def run(self):
+  def run(self) -> dict[str, list[str]]:
     result = {}
     for k in self.docs.keys():
       l = self.get_keywords(k)
