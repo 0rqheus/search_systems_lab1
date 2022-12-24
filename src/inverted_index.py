@@ -1,7 +1,13 @@
-class InvertedIndex:
-  def __init__(self, docs):
-    self.docs = docs
+from src.base_index import BaseIndex
 
+class InvertedIndex(BaseIndex):
   def run(self):
-    print("Not implemented")
-    return {}
+    result = {}
+    for k in self.docs.keys():
+      l = self.get_keywords(k)
+      for word in l:
+        if word in result:
+          result[word].append(k)
+        else:
+          result[word] = [k]
+    return result

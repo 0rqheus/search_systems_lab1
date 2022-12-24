@@ -1,13 +1,10 @@
-import re
+from src.base_index import BaseIndex
 
-class ForwardIndex:
-  def __init__(self, docs):
-    self.docs = docs
-
+class ForwardIndex(BaseIndex):
   def run(self):
     result = {}
-    for k, v in self.docs.items():
-      l = list(set(re.findall("\w+'?\w+", v)))
+    for k in self.docs.keys():
+      l = self.get_keywords(k)
       l.sort()
       result[k] = l
     return result

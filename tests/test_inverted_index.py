@@ -8,4 +8,4 @@ def test_inverted_indexing():
   assert results["head"] == ["doc1"]
   assert results["think"] == ["doc1", "doc2"]
   assert results["praying"] == ["doc1", "doc3"]
-  assert results["but"] == ["doc2", "doc2"]
+  assert results["but"] == ["doc2", "doc3"]
