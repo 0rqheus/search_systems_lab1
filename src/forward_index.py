@@ -1,7 +1,10 @@
-class ForwardIndex:
-  def __init__(self, docs):
-    self.docs = docs
+from src.base_index import BaseIndex
 
+class ForwardIndex(BaseIndex):
   def run(self):
-    print("Not implemented")
-    return {}
+    result = {}
+    for k in self.docs.keys():
+      l = self.get_keywords(k)
+      l.sort()
+      result[k] = l
+    return result
